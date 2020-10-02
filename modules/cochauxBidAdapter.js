@@ -95,10 +95,6 @@ export const spec = {
     return wins;
   },
 
-  getUserSyncs: (syncOptions, serverResponses, gdprConsent, uspConsent) => {
-    // Not implemented
-  },
-
   onTimeout: (data) => {
     // When the request times out
     document.getElementById("to-yes").style.display = "inline";
@@ -109,10 +105,6 @@ export const spec = {
     // When a bid was won
     document.getElementById("to-no").style.display = "inline";
     document.getElementById("bw-yes").style.display = "inline";
-  },
-
-  onSetTargeting: (bid) => {
-    // Not implemented
   },
 };
 
