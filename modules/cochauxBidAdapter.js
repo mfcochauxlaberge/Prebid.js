@@ -36,7 +36,6 @@ export const spec = {
     ortbRequest.imp = [
       {
         id: bids[0].bidId,
-        tagid: String(bids[0].params.dmxid),
         bidfloor: 2.0,
         banner: {
           topframe: 1,
