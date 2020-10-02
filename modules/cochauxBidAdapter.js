@@ -25,9 +25,9 @@ export const spec = {
       tmax: config.getConfig("bidderTimeout") + 1000,
       site: {
         publisher: {
-          id: String(bidRequest[0].params.publisher).toLowerCase() || null,
-          name: String(bidRequest[0].params.publisher) || null,
-          domain: String(bidRequest[0].params.domain) || null,
+          id: String(bidRequest[0].params.publisher).toLowerCase(),
+          name: String(bidRequest[0].params.publisher),
+          domain: String(bidRequest[0].params.domain),
         },
       },
     };
@@ -63,7 +63,7 @@ export const spec = {
   },
 
   interpretResponse: (response, bidRequest) => {
-    let body = response.body || {};
+    let body = response.body || { seatbid: [] };
 
     // For each seatbid, we find the winning bid.
     let wins = body.seatbid.reduce((wins, bids) => {
