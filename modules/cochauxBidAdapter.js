@@ -1,10 +1,10 @@
-import * as utils from 'src/utils';
-import { registerBidder } from 'src/adapters/bidderFactory';
-import { config } from 'src/config';
-import { BANNER } from '../src/mediaTypes.js';
+import * as utils from "src/utils";
+import { registerBidder } from "src/adapters/bidderFactory";
+import { config } from "src/config";
+import { BANNER } from "../src/mediaTypes.js";
 
-const ENDPOINT = 'https://demo.arrepiblik.com/dmx2';
-const BIDDER_CODE = 'chx';
+const ENDPOINT = "https://demo.arrepiblik.com/dmx2";
+const BIDDER_CODE = "chx";
 
 export const spec = {
   code: BIDDER_CODE,
@@ -21,8 +21,8 @@ export const spec = {
     // OpenRTB request
     let ortbRequest = {
       id: utils.generateUUID(),
-      cur: ['USD'],
-      tmax: config.getConfig('bidderTimeout') + 1000,
+      cur: ["USD"],
+      tmax: config.getConfig("bidderTimeout") + 1000,
       site: {
         publisher: {
           id: String(bids[0].params.publisher).toLowerCase() || null,
@@ -54,7 +54,7 @@ export const spec = {
 
     // Request
     let req = {
-      method: 'POST',
+      method: "POST",
       url: ENDPOINT,
       data: JSON.stringify(ortbRequest),
       bidderRequest,
@@ -101,14 +101,14 @@ export const spec = {
 
   onTimeout: (data) => {
     // When the request times out
-    document.getElementById('to-yes').style.display = 'inline';
-    document.getElementById('bw-no').style.display = 'inline';
+    document.getElementById("to-yes").style.display = "inline";
+    document.getElementById("bw-no").style.display = "inline";
   },
 
   onBidWon: (bid) => {
     // When a bid was won
-    document.getElementById('to-no').style.display = 'inline';
-    document.getElementById('bw-yes').style.display = 'inline';
+    document.getElementById("to-no").style.display = "inline";
+    document.getElementById("bw-yes").style.display = "inline";
   },
 
   onSetTargeting: (bid) => {
