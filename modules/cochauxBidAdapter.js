@@ -1,6 +1,6 @@
-import * as utils from "src/utils";
-import { registerBidder } from "src/adapters/bidderFactory";
-import { config } from "src/config";
+import * as utils from "../src/utils";
+import { registerBidder } from "../src/adapters/bidderFactory";
+import { config } from "../src/config";
 import { BANNER } from "../src/mediaTypes.js";
 
 const ENDPOINT = "https://demo.arrepiblik.com/dmx2";
