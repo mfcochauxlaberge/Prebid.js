@@ -17,7 +17,7 @@ export const spec = {
     );
   },
 
-  buildRequests: (bids, bidderRequest) => {
+  buildRequests: (bidRequest, bidderRequest) => {
     // OpenRTB request
     let ortbRequest = {
       id: utils.generateUUID(),
@@ -25,9 +25,9 @@ export const spec = {
       tmax: config.getConfig("bidderTimeout") + 1000,
       site: {
         publisher: {
-          id: String(bids[0].params.publisher).toLowerCase() || null,
-          name: String(bids[0].params.publisher) || null,
-          domain: String(bids[0].params.domain) || null,
+          id: String(bidRequest[0].params.publisher).toLowerCase() || null,
+          name: String(bidRequest[0].params.publisher) || null,
+          domain: String(bidRequest[0].params.domain) || null,
         },
       },
     };
@@ -35,13 +35,13 @@ export const spec = {
     // Impression
     ortbRequest.imp = [
       {
-        id: bids[0].bidId,
+        id: bidRequest[0].bidId,
         bidfloor: 2.0,
         banner: {
           topframe: 1,
-          w: bids[0].sizes[0][0],
-          h: bids[0].sizes[0][1],
-          format: bids[0].sizes.map((size) => {
+          w: bidRequest[0].sizes[0][0],
+          h: bidRequest[0].sizes[0][1],
+          format: bidRequest[0].sizes.map((size) => {
             return {
               w: size[0],
               h: size[1],
